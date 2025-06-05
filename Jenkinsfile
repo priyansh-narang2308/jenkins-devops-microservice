@@ -48,6 +48,33 @@ pipeline{
 				sh "mvn failsafe:integration-test failsafe:verify"
 			}
 		}
+		stage("Package"){
+			steps{
+				// this creates a jar file and and then skips all the prev tests
+				sh "mvn package -DskipTests"
+			}
+		}
+		stage("Build Docker Image"){
+			steps{
+				// this is DECLARITIVE way to do it 
+				// "docker build -t in28min/curreny-exchange-devops:$env.BUILD_TAG"
+				// this is new way 
+				script{
+					dockerImage = docker.build("priyansh2308/curreny-exchange-devops:${env.BUILD_TAG}")
+				}
+			}
+		}
+
+		stage("Push Docker Image"){
+			steps{
+				script{
+					docker.withRegistry("","dockerHub"){
+						dockerImage.push('')
+						dockerImage.push("latest")
+					}
+				}
+			}
+		}
 	}
 	post {
 		always{
