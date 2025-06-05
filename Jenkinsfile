@@ -40,7 +40,7 @@ pipeline{
 		}
 		stage("Test"){
 			steps{
-				echo sh "mvn test"
+				 sh "mvn test"
 			}
 		}
 		stage("Integration Test"){
