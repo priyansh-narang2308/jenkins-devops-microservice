@@ -15,8 +15,8 @@
 // DECLARITIVE
 // pipleine should have stages to be configured and then steps inside
 pipeline{
-	// agent any
-	agent { docker { image "maven:3.6.3" } }
+	agent any
+	// agent { docker { image "maven:3.6.3" } }
 	environment{
 		// to configure the both homes to the path
 		dockerHome = tool "myDocker"
