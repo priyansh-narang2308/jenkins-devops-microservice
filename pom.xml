@@ -63,6 +63,13 @@
 			<scope>runtime</scope>
 		</dependency>
 
+<dependency>
+  <groupId>org.codehaus.groovy</groupId>
+  <artifactId>groovy</artifactId>
+  <version>3.0.17</version> <!-- Match it with your testing framework -->
+  <scope>test</scope>
+</dependency>
+
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
