@@ -29,7 +29,7 @@ pipeline{
 				echo "mvn --version"
 				sh "mvn --version"
 				echo "Docker version"
-				sh "docker --version"
+				sh "docker version"
 				echo "Build"
 			}
 		}
