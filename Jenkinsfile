@@ -15,10 +15,13 @@
 // DECLARITIVE
 // pipleine should have stages to be configured and then steps inside
 pipeline{
-	agent any
+	// agent any
+	agent { docker { image "maven:3.6.3" } }
 	stages{
 		stage("Build"){
 			steps{
+				echo "mvn --version"
+				sh "mvn --version"
 				echo "Build"
 			}
 		}
